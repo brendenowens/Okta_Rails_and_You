@@ -1,0 +1,18 @@
+<div class="ui inverted segment">
+  <h1>Signed-In/Created Users created from Okta, Omniauth, and ActiveRecord</h1>
+  <div class="ui inverted relaxed divided list">
+    <% @users.each do |user| %>
+
+
+    <div class="item">
+      <div class="content">
+        <div class="header"><%= user.name %></div>
+        <%= user.email %>
+
+
+      </div>
+    </div>
+    <% end %>
+    <p><%=session.to_json%></p>
+  </div>
+</div>

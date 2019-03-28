@@ -1,0 +1,10 @@
+version: '3'
+services: 
+  rails_app:
+    container_name: okta-login-app
+    build: .
+    environment: 
+       RAILS_ENV: development
+    ports:
+      - 3000:3000
+    command: /bin/bash -c "rake db:drop db:create db:migrate && rails s -b 0.0.0.0"

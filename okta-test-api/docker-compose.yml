@@ -1,0 +1,28 @@
+version: '3.2'
+
+services:
+  okta-api:
+    container_name: okta-api
+    build: .
+    ports: 
+     - 3001:3000
+    environment: 
+      RAILS_ENV: development
+      OKTA_ISSUER: <authorization server in okta>
+      OKTA_CLIENT_ID: <application client id from okta>
+      PG_URL: okta_api_postgres
+      PG_USERNAME: okta_api_user
+      PG_PASSWORD: goodnewseveryone
+    depends_on: 
+      - okta_api_database
+    #command: bash -c "rails server -b 0.0.0.0 -p 3000"
+
+  okta_api_database:
+    container_name: okta_api_postgres
+    image: postgres:9.4
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: goodnewseveryone
+      POSTGRES_USER: okta_api_user

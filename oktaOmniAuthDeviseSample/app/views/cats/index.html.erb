@@ -1,0 +1,16 @@
+<div class="ui inverted segment">
+  <h1>Cats from Seperate API</h1>
+  <div class="ui inverted relaxed divided list">
+    <% @cats.each do |cat| %>
+
+
+    <div class="item">
+      <div class="content">
+        <div class="header"><%= cat["name"] %></div>
+
+
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
