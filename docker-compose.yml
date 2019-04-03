@@ -6,8 +6,8 @@ services:
     build: ./okta-test-api
     environment: 
       RAILS_ENV: development
-      OKTA_ISSUER: <authorization server>
-      OKTA_CLIENT_ID: <application client id from okta>
+      OKTA_ISSUER: https://dev-738834.oktapreview.com/oauth2/ausj9seguriqr0ZDk0h7
+      OKTA_CLIENT_ID: 
       PG_URL: okta_api_postgres
       PG_USERNAME: okta_api_user
       PG_PASSWORD: goodnewseveryone
@@ -21,6 +21,14 @@ services:
     build: ./oktaOmniAuthDeviseSample
     environment: 
       RAILS_ENV: development
+      OKTA_REDIRECT_URI: http://localhost:3000/users/auth/oktaoauth/callback
+      OKTA_CLIENT_ID: ""
+      OKTA_CLIENT_SECRET: ""
+      OKTA_ORG: "dev-738834-admin"
+      OKTA_DOMAIN: "oktapreview"
+      OKTA_URL: "https://dev-738834.oktapreview.com"
+      OKTA_ISSUER: "https://dev-738834.oktapreview.com/oauth2/ausj9seguriqr0ZDk0h7"
+      OKTA_AUTH_SERVER_ID: "ausj9seguriqr0ZDk0h7"
     depends_on: 
       - okta-api
     ports:
